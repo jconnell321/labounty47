@@ -27,7 +27,7 @@ function openAlbumModal(album) {
     modalTitle.textContent = title;
     modalArtist.textContent = artist;
     modalStatus.textContent = status;
-    modalDescription.innerHTML = description;
+    modalDescription.textContent = description;
 
     if (link) {
         modalLink.href = link;
