@@ -16,8 +16,8 @@
     --text: #f0ece3;
     --text-muted: #aaa399;
 
-    --line: #302f2e;
-    --line-strong: #4b4947;
+    --line: #3b3937;
+    --line-strong: #595653;
 
     --accent: #b89a63;
 
@@ -207,9 +207,16 @@ section {
     width: 32px;
     height: 0;
 
-    border-top: 1px solid var(--line-strong);
+    height: 2px;
 
-    transform: none;
+    background: linear-gradient(
+        to bottom,
+        transparent 0,
+        var(--line-strong) 50%,
+        transparent 100%
+    );
+
+    transform: translateY(-50%);
 
     z-index: 3;
 }
@@ -343,13 +350,15 @@ section {
     align-items: center;
     justify-content: center;
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 0;
     border-radius: 50%;
+
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 
     font-size: 1.2rem;
 
     transition:
-        border-color 180ms ease,
+        box-shadow 180ms ease,
         color 180ms ease,
         transform 180ms ease;
 }
@@ -357,7 +366,7 @@ section {
 .scroll-down:hover {
     color: var(--accent);
 
-    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
 
     transform:
         translateX(-50%)
@@ -374,8 +383,11 @@ section {
 
     background: var(--background-soft);
 
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border: 0;
+
+    box-shadow:
+        inset 0 1px 0 var(--line),
+        inset 0 -1px 0 var(--line);
 }
 
 
@@ -454,11 +466,12 @@ section {
     object-fit: cover;
     display: block;
 
-    border: 1px solid var(--line);
+    border: 0;
+    box-shadow: inset 0 0 0 1px var(--line);
 
     transition:
         transform 220ms ease,
-        border-color 220ms ease;
+        box-shadow 220ms ease;
 }
 
 /* Text always begins directly beneath the cover */
@@ -535,7 +548,8 @@ section {
     margin: 5rem auto 0;
     padding-top: 3rem;
 
-    border-top: 1px solid var(--line);
+    border-top: 0;
+    box-shadow: inset 0 1px 0 var(--line);
 }
 
 .platform-heading {
@@ -557,7 +571,8 @@ section {
 }
 
 .artist-links + .artist-links {
-    border-left: 1px solid var(--line);
+    border-left: 0;
+    box-shadow: inset 1px 0 0 var(--line);
 }
 
 .artist-links > p {
@@ -584,16 +599,17 @@ section {
     font-family: "EB Garamond", Georgia, serif;
     font-size: 1.15rem;
 
-    border-bottom: 1px solid var(--line-strong);
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 var(--line-strong);
 
     transition:
         color 180ms ease,
-        border-color 180ms ease;
+        box-shadow 180ms ease;
 }
 
 .artist-links-list a:hover {
     color: var(--accent);
-    border-color: var(--accent);
+    box-shadow: inset 0 -1px 0 var(--accent);
 }
 
 @media (max-width: 770px) {
@@ -610,7 +626,8 @@ section {
         padding-top: 3rem;
 
         border-left: 0;
-        border-top: 1px solid var(--line);
+        border-top: 0;
+        box-shadow: inset 0 1px 0 var(--line);
     }
 }
 
@@ -651,7 +668,8 @@ section {
 
     align-items: center;
 
-    border-top: 1px solid var(--line);
+    border-top: 0;
+    box-shadow: inset 0 1px 0 var(--line);
 }
 
 
@@ -674,7 +692,8 @@ section {
     width: 100%;
     height: 100%;
 
-    border: 1px solid rgba(184, 154, 99, 0.45);
+    border: 0;
+    box-shadow: inset 0 0 0 1px rgba(184, 154, 99, 0.45);
 
     z-index: 0;
 }
@@ -754,7 +773,8 @@ section {
 
     padding-bottom: 0.35rem;
 
-    border-bottom: 1px solid var(--text);
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 var(--text);
 
     font-size: 0.68rem;
     font-weight: 500;
@@ -765,13 +785,13 @@ section {
 
     transition:
         color 180ms ease,
-        border-color 180ms ease;
+        box-shadow 180ms ease;
 }
 
 .featured-details > a:hover {
     color: var(--accent);
 
-    border-color: var(--accent);
+    box-shadow: inset 0 -1px 0 var(--accent);
 }
 
 /* =========================================================
@@ -785,7 +805,8 @@ section {
 
     background: #080808;
 
-    border-top: 1px solid var(--line);
+    border-top: 0;
+    box-shadow: inset 0 1px 0 var(--line);
 }
 
 .site-footer p {
@@ -1022,7 +1043,8 @@ button:focus-visible {
 }
 
 .writing-section .section-inner {
-    border-top: 1px solid var(--line);
+    border-top: 0;
+    box-shadow: inset 0 1px 0 var(--line);
 
     padding-top: 4rem;
 }
@@ -1085,7 +1107,8 @@ button:focus-visible {
         0
         4rem;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 var(--line);
 }
 
 .writing-series {
@@ -1196,7 +1219,8 @@ button:focus-visible {
 
     align-items: center;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 var(--line);
 }
 
 .writing-number {
@@ -1396,7 +1420,8 @@ button:focus-visible {
     overflow-y: auto;
 
     background: var(--background-soft);
-    border: 1px solid var(--line);
+    border: 0;
+    box-shadow: inset 0 0 0 1px var(--line);
 
     text-align: center;
 
@@ -1477,7 +1502,8 @@ button:focus-visible {
     padding: 0.4rem 0.75rem;
 
     color: var(--text-muted);
-    border: 1px solid var(--line-strong);
+    border: 0;
+    box-shadow: inset 0 0 0 1px var(--line-strong);
 
     font-size: 0.58rem;
     font-weight: 500;
@@ -1507,7 +1533,8 @@ button:focus-visible {
 
     padding-bottom: 0.35rem;
 
-    border-bottom: 1px solid var(--text);
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 var(--text);
 
     font-size: 0.68rem;
     font-weight: 500;
@@ -1519,7 +1546,7 @@ button:focus-visible {
 
 .album-modal-link:hover {
     color: var(--accent);
-    border-color: var(--accent);
+    box-shadow: inset 0 -1px 0 var(--accent);
 }
 
 .album-modal-link.is-hidden {
@@ -1556,7 +1583,8 @@ body.modal-open {
     padding: 8rem 2rem;
 
     background: var(--background-soft);
-    border-top: 1px solid var(--line);
+    border-top: 0;
+    box-shadow: inset 0 1px 0 var(--line);
 
     text-align: center;
 }
@@ -1605,16 +1633,17 @@ body.modal-open {
     font-family: "EB Garamond", Georgia, serif;
     font-size: clamp(1.4rem, 3vw, 2rem);
 
-    border-bottom: 1px solid var(--line-strong);
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 var(--line-strong);
 
     transition:
         color 180ms ease,
-        border-color 180ms ease;
+        box-shadow 180ms ease;
 }
 
 .contact-email:hover {
     color: var(--accent);
-    border-color: var(--accent);
+    box-shadow: inset 0 -1px 0 var(--accent);
 }
 
 
