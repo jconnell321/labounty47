@@ -25,6 +25,15 @@
     --reading-width: 760px;
 
     --header-height: 84px;
+
+    --page-gutter: 48px;
+
+    --section-space-large: 4.5rem;
+    --section-space-medium: 3rem;
+    --section-space-small: 2.5rem;
+
+    --transition-fast: 180ms ease;
+    --transition-medium: 220ms ease;
 }
 
 
@@ -103,7 +112,7 @@ section {
 
 .section-inner {
     width: min(
-        calc(100% - 48px),
+        calc(100% - var(--page-gutter)),
         var(--content-width)
     );
 
@@ -122,7 +131,6 @@ section {
     width: 100%;
 
     background: var(--background);
-    border-bottom: 0;
     box-shadow: inset 0 -1px 0 var(--line);
 }
 
@@ -168,8 +176,8 @@ section {
     text-transform: uppercase;
 
     transition:
-        opacity 180ms ease,
-        color 180ms ease;
+        opacity var(--transition-fast),
+        color var(--transition-fast);
 }
 
 .main-nav a:hover {
@@ -213,7 +221,6 @@ section {
     top: 50%;
 
     width: 32px;
-    height: 0;
 
     height: 2px;
 
@@ -367,9 +374,9 @@ section {
     font-size: 1.2rem;
 
     transition:
-        box-shadow 180ms ease,
-        color 180ms ease,
-        transform 180ms ease;
+        box-shadow var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
 }
 
 .scroll-down:hover {
@@ -392,28 +399,7 @@ section {
 
     background: var(--background-soft);
 
-    border: 0;
-
     box-shadow: inset 0 1px 0 var(--line);
-}
-
-/* -----------------------------
-   Section title
------------------------------ */
-
-.music-section::before {
-    content: none;
-}
-
-@media (max-width: 1000px) and (min-width: 721px) {
-    .music-section {
-        padding-top: 0;
-    }
-
-    .music-section::before {
-        padding-top: 1.75rem;
-        margin-bottom: 1.5rem;
-    }
 }
 
 /* =========================================================
@@ -433,7 +419,7 @@ section {
 }
 
 .album-selector-container {
-    width: min(calc(100% - 48px), var(--content-width));
+    width: min(calc(100% - var(--page-gutter)), var(--content-width));
     margin: 0 auto;
 }
 
@@ -485,19 +471,13 @@ section {
     object-fit: cover;
     display: block;
 
-    border: 0;
     box-shadow: inset 0 0 0 1px var(--line);
 
     transition:
-        transform 220ms ease,
-        box-shadow 220ms ease;
+        transform var(--transition-medium),
+        box-shadow var(--transition-medium);
 }
 
-/* Text always begins directly beneath the cover */
-
-.album-thumb .album-text {
-    padding-top: 0;
-}
 
 .album-thumb span {
     display: block;
@@ -513,8 +493,10 @@ section {
 }
 
 .album-thumb small {
+    position: relative;
     display: block;
     margin-top: 0.35rem;
+    padding-left: 0.9rem;
 
     color: var(--text-muted);
 
@@ -529,12 +511,6 @@ section {
 /* -----------------------------
    Future / preparation states
 ----------------------------- */
-
-.album-thumb small {
-    position: relative;
-
-    padding-left: 0.9rem;
-}
 
 .album-thumb small::before {
     content: "";
@@ -562,12 +538,11 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    width: min(calc(100% - 48px), var(--content-width));
+    width: min(calc(100% - var(--page-gutter)), var(--content-width));
 
-    margin: 3rem auto 0;
-    padding-top: 3rem;
+    margin: 2.25rem auto 0;
+    padding-top: 2rem;
 
-    border-top: 0;
     box-shadow: inset 0 1px 0 var(--line);
 }
 
@@ -590,7 +565,6 @@ section {
 }
 
 .artist-links + .artist-links {
-    border-left: 0;
     box-shadow: inset 1px 0 0 var(--line);
 }
 
@@ -609,7 +583,7 @@ section {
 .artist-links-list {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 2.25rem;
 }
 
 .artist-links-list a {
@@ -618,12 +592,11 @@ section {
     font-family: "EB Garamond", Georgia, serif;
     font-size: 1.15rem;
 
-    border-bottom: 0;
     box-shadow: inset 0 -1px 0 var(--line-strong);
 
     transition:
-        color 180ms ease,
-        box-shadow 180ms ease;
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
 }
 
 .artist-links-list a:hover {
@@ -633,6 +606,7 @@ section {
 
 @media (max-width: 1000px) {
     .music-section {
+        padding-top: 0;
         padding-bottom: 3rem;
     }
 
@@ -661,7 +635,7 @@ section {
         gap: 2.25rem;
 
         margin-top: 2.5rem;
-        padding-top: 2rem;
+        padding: 2rem 0 1.5rem;
     }
 
     .artist-links {
@@ -671,8 +645,6 @@ section {
     .artist-links + .artist-links {
         padding-top: 2.25rem;
 
-        border-left: 0;
-        border-top: 0;
         box-shadow: inset 0 1px 0 var(--line);
     }
 
@@ -685,11 +657,6 @@ section {
     }
 }
 
-@media (max-width: 720px) {
-    .artist-platforms {
-        padding-bottom: 1.5rem;
-    }
-}
 
 @media (max-width: 460px) {
     .artist-links-list {
@@ -697,9 +664,7 @@ section {
         flex-wrap: wrap;
         justify-content: center;
 
-        gap:
-            0.9rem
-            1.5rem;
+        gap: 0.9rem 1.5rem;
     }
 
     .artist-links-list a {
@@ -714,7 +679,7 @@ section {
 
 .featured-album {
     width: min(
-        calc(100% - 48px),
+        calc(100% - var(--page-gutter)),
         var(--content-width)
     );
 
@@ -736,7 +701,6 @@ section {
 
     align-items: center;
 
-    border-top: 0;
     box-shadow: inset 0 1px 0 var(--line);
 }
 
@@ -760,7 +724,6 @@ section {
     width: 100%;
     height: 100%;
 
-    border: 0;
     box-shadow: inset 0 0 0 1px rgba(184, 154, 99, 0.45);
 
     z-index: 0;
@@ -852,8 +815,8 @@ section {
     text-transform: uppercase;
 
     transition:
-        color 180ms ease,
-        box-shadow 180ms ease;
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
 }
 
 .featured-details > a:hover {
@@ -873,7 +836,6 @@ section {
 
     background: #080808;
 
-    border-top: 0;
     box-shadow: inset 0 1px 0 var(--line);
 }
 
@@ -912,6 +874,22 @@ button:focus-visible {
 }
 
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
 /* =========================================================
    TABLET
 ========================================================= */
@@ -922,9 +900,7 @@ button:focus-visible {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
 
-        gap:
-            1.5rem
-            0.75rem;
+        gap: 1.5rem 0.75rem;
     }
 
     .album-thumb span {
@@ -959,6 +935,7 @@ button:focus-visible {
 
     :root {
         --header-height: auto;
+        --page-gutter: 32px;
     }
 
     .main-nav {
@@ -1015,10 +992,7 @@ button:focus-visible {
     /* Hero */
 
     .hero {
-        padding:
-            4rem
-            1.25rem
-            4.5rem;
+        padding: 4rem 1.25rem 4.5rem;
     }
 
     .hero h1 {
@@ -1045,10 +1019,7 @@ button:focus-visible {
     /* Albums */
 
     .music-section {
-        padding:
-            0
-            0
-            1rem;
+        padding: 0 0 1rem;
     }
 
     .album-thumb small::before {
@@ -1098,9 +1069,7 @@ button:focus-visible {
     }
 
     .featured-details p {
-        margin:
-            0 auto
-            1.5rem;
+        margin: 0 auto 1.5rem;
 
         font-size: 0.98rem;
         line-height: 1.65;
@@ -1113,6 +1082,10 @@ button:focus-visible {
 ========================================================= */
 
 @media (max-width: 460px) {
+
+    :root {
+        --page-gutter: 20px;
+    }
 
     .nav-left,
     .nav-right {
@@ -1133,10 +1106,7 @@ button:focus-visible {
     }
 
     .hero {
-        padding:
-            3.25rem
-            1rem
-            3.75rem;
+        padding: 3.25rem 1rem 3.75rem;
     }
 
     .hero h1 {
@@ -1151,23 +1121,14 @@ button:focus-visible {
         font-size: 0.94rem;
     }
 
-    .album-selector-container {
-        width: calc(100% - 20px)
-    }
-
     .album-selector {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
 
-        width: 100%;
-
-        gap:
-            1rem
-            0.75rem;
+        gap: 1rem 0.75rem;
     }
 
-    .featured-album,
-    .music-section::before {
+    .featured-album {
         width: calc(100% - 24px);
     }
 
@@ -1211,13 +1172,12 @@ button:focus-visible {
 ========================================================= */
 
 .writing-section {
-    padding: 0rem 0 4.5rem;
+    padding: 0 0 3.5rem;
 
     background: var(--background);
 }
 
 .writing-section .section-inner {
-    border-top: 0;
     box-shadow: inset 0 1px 0 var(--line);
 
     padding-top: 2.5rem;
@@ -1273,17 +1233,13 @@ button:focus-visible {
 
 .featured-writing-inner {
     width: min(
-        calc(100% - 48px),
+        calc(100% - var(--page-gutter)),
         var(--content-width)
     );
 
     margin: 0 auto;
-    padding:
-        14rem
-        0
-        4rem;
+    padding: 14rem 0 4rem;
 
-    border-bottom: 0;
     box-shadow: inset 0 -1px 0 var(--line);
 }
 
@@ -1395,7 +1351,6 @@ button:focus-visible {
 
     align-items: center;
 
-    border-bottom: 0;
     box-shadow: inset 0 -1px 0 var(--line);
 }
 
@@ -1440,7 +1395,7 @@ button:focus-visible {
 }
 
 .writing-item-content h3 a {
-    transition: color 180ms ease;
+    transition: color var(--transition-fast);
 }
 
 .writing-item-content h3 a:hover {
@@ -1465,6 +1420,13 @@ button:focus-visible {
    WRITING — MOBILE
 ========================================================= */
 
+
+@media (max-width: 1000px) {
+    .writing-section {
+        padding-bottom: 3rem;
+    }
+}
+
 @media (max-width: 720px) {
 
     .writing-section {
@@ -1488,14 +1450,11 @@ button:focus-visible {
     }
 
     .featured-writing-inner {
-        width: calc(100% - 32px);
+        width: min(calc(100% - var(--page-gutter)), var(--content-width));
 
         margin: 0 auto;
 
-        padding:
-            9rem
-            0
-            2.5rem;
+        padding: 9rem 0 2.5rem;
     }
 
     .featured-writing h2 {
@@ -1532,9 +1491,7 @@ button:focus-visible {
 
         gap: 1rem;
 
-        padding:
-            1.45rem
-            0;
+        padding: 1.45rem 0;
     }
 
     .writing-status {
@@ -1545,7 +1502,6 @@ button:focus-visible {
 
 }
 
-
 @media (max-width: 460px) {
 
     .featured-writing {
@@ -1553,12 +1509,9 @@ button:focus-visible {
     }
 
     .featured-writing-inner {
-        width: calc(100% - 28px);
+        width: min(calc(100% - var(--page-gutter)), var(--content-width));
 
-        padding:
-            11rem
-            0
-            2.25rem;
+        padding: 11rem 0 2.25rem;
     }
 
     .featured-writing h2 {
@@ -1572,9 +1525,7 @@ button:focus-visible {
 
         gap: 0.75rem;
 
-        padding:
-            1.25rem
-            0;
+        padding: 1.25rem 0;
     }
 
     .writing-number {
@@ -1608,8 +1559,8 @@ button:focus-visible {
     visibility: hidden;
 
     transition:
-        opacity 220ms ease,
-        visibility 220ms ease;
+        opacity var(--transition-medium),
+        visibility var(--transition-medium);
 }
 
 .album-modal.is-open {
@@ -1645,7 +1596,7 @@ button:focus-visible {
 
     transform: translateY(20px);
 
-    transition: transform 220ms ease;
+    transition: transform var(--transition-medium);
 }
 
 .album-modal.is-open .album-modal-content {
@@ -1670,7 +1621,7 @@ button:focus-visible {
 
     cursor: pointer;
 
-    transition: color 180ms ease;
+    transition: color var(--transition-fast);
 }
 
 .album-modal-close:hover {
@@ -1720,7 +1671,6 @@ button:focus-visible {
     padding: 0.4rem 0.75rem;
 
     color: var(--text-muted);
-    border: 0;
     box-shadow: inset 0 0 0 1px var(--line-strong);
 
     font-size: 0.58rem;
@@ -1778,17 +1728,14 @@ body.modal-open {
 
 /* Mobile */
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
 
     .album-modal {
         padding: 1rem;
     }
 
     .album-modal-content {
-        padding:
-            3.5rem
-            1.5rem
-            2rem;
+        padding: 3.5rem 1.5rem 2rem;
     }
 
 }
@@ -1801,7 +1748,6 @@ body.modal-open {
     padding: 4.5rem 2rem;
 
     background: var(--background-soft);
-    border-top: 0;
     box-shadow: inset 0 1px 0 var(--line);
 
     text-align: center;
@@ -1851,12 +1797,11 @@ body.modal-open {
     font-family: "EB Garamond", Georgia, serif;
     font-size: clamp(1.4rem, 3vw, 2rem);
 
-    border-bottom: 0;
     box-shadow: inset 0 -1px 0 var(--line-strong);
 
     transition:
-        color 180ms ease,
-        box-shadow 180ms ease;
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
 }
 
 .contact-email:hover {
@@ -1866,15 +1811,20 @@ body.modal-open {
 
 
 /* =========================================================
-   CONTACT — MOBILE
+   CONTACT — RESPONSIVE
 ========================================================= */
+
+@media (max-width: 1000px) {
+    .contact-section {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+    }
+}
 
 @media (max-width: 720px) {
 
     .contact-section {
-        padding:
-            2.5rem
-            1.25rem;
+        padding: 2.5rem 1.25rem;
     }
 
 }
@@ -1882,9 +1832,7 @@ body.modal-open {
 @media (max-width: 460px) {
 
     .contact-section {
-        padding:
-            2.25rem
-            1rem;
+        padding: 2.25rem 1rem;
     }
 
 }
