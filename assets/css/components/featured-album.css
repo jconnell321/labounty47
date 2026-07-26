@@ -1,0 +1,241 @@
+/* =========================================================
+   SADIE LABOUNTY AND THE LABOUNTY WARRIORS
+========================================================= */
+
+/* =========================================================
+   FEATURED ALBUM
+========================================================= */
+
+.featured-album {
+    width: min(
+        calc(100% - var(--page-gutter)),
+        var(--content-width)
+    );
+
+    margin: 0 auto;
+
+    padding-top: 4.5rem;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 520px)
+        minmax(0, 1fr);
+
+    gap: clamp(
+        3.5rem,
+        8vw,
+        9rem
+    );
+
+    align-items: center;
+
+    box-shadow: inset 0 1px 0 var(--line);
+}
+
+
+/* -----------------------------
+   Featured cover
+----------------------------- */
+
+.featured-cover {
+    position: relative;
+}
+
+.featured-cover::before {
+    content: "";
+
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    width: 100%;
+    height: 100%;
+
+    box-shadow: inset 0 0 0 1px rgba(184, 154, 99, 0.45);
+
+    z-index: 0;
+}
+
+.featured-cover img {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    object-fit: cover;
+}
+
+
+/* -----------------------------
+   Featured album text
+----------------------------- */
+
+.featured-details {
+    max-width: 580px;
+}
+
+.featured-details .artist {
+    margin-bottom: 1.2rem;
+
+    color: var(--accent);
+
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+}
+
+.featured-details h2 {
+    margin-bottom: 1.8rem;
+
+    font-family:
+        "Cinzel Decorative",
+        Georgia,
+        serif;
+
+    font-size: clamp(
+        2.7rem,
+        5.5vw,
+        5.8rem
+    );
+
+    font-weight: 400;
+
+    line-height: 0.98;
+}
+
+.featured-details p {
+    max-width: 520px;
+
+    margin-bottom: 2rem;
+
+    color: var(--text-muted);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+}
+
+.featured-details > a {
+    display: inline-block;
+
+    padding-bottom: 0.35rem;
+
+    border-bottom: 0;
+    box-shadow: inset 0 -1px 0 var(--text);
+
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    letter-spacing: 0.24em;
+
+    text-transform: uppercase;
+
+    transition:
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.featured-details > a:hover {
+    color: var(--accent);
+
+    box-shadow: inset 0 -1px 0 var(--accent);
+}
+
+/* -----------------------------
+   Featured album responsive
+----------------------------- */
+
+@media (max-width: 1000px) {
+
+    .featured-album {
+        grid-template-columns:
+            minmax(260px, 420px)
+            1fr;
+
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .featured-album {
+        grid-template-columns: 1fr;
+
+        gap: 2.25rem;
+
+        padding-top: 3rem;
+    }
+
+    .featured-cover {
+        width: min(88%, 420px);
+
+        margin: 0 auto;
+    }
+
+    .featured-cover::before {
+        top: 12px;
+        left: 12px;
+    }
+
+    .featured-details {
+        max-width: none;
+
+        text-align: center;
+    }
+
+    .featured-details .artist {
+        margin-bottom: 0.85rem;
+    }
+
+    .featured-details h2 {
+        margin-bottom: 1.25rem;
+
+        font-size: clamp(
+            2.35rem,
+            10vw,
+            3.7rem
+        );
+
+        line-height: 1;
+    }
+
+    .featured-details p {
+        margin: 0 auto 1.5rem;
+
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .featured-album {
+        width: calc(100% - var(--page-gutter));
+    }
+
+    .featured-cover {
+        width: 92%;
+    }
+
+    .featured-details h2 {
+        font-size: 2.45rem;
+    }
+
+    .featured-details p {
+        font-size: 0.94rem;
+        line-height: 1.58;
+    }
+}

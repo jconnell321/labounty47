@@ -1,0 +1,199 @@
+/* =========================================================
+   SADIE LABOUNTY AND THE LABOUNTY WARRIORS
+========================================================= */
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    padding: 7rem 2rem 6rem;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.72)
+        ),
+        url("../../images/home/hero.webp")
+        center / cover
+        no-repeat;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.03),
+            transparent 58%
+        );
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 1100px);
+}
+
+
+/* -----------------------------
+   Hero title
+----------------------------- */
+
+.hero h1 {
+    margin: 0;
+
+    font-family: "Forum", serif;
+    font-size: clamp(3.5rem, 9vw, 9rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+
+    text-wrap: balance;
+
+    text-shadow:
+        0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.hero h1 span {
+    display: block;
+    margin-top: 0.45em;
+
+    font-size: 0.36em;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+}
+
+
+/* -----------------------------
+   Hero description
+----------------------------- */
+
+.hero-description,
+.hero-content > p {
+    width: min(100%, 700px);
+    margin: 2.2rem auto 0;
+
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+
+    color: rgba(240, 236, 227, 0.88);
+}
+
+
+/* -----------------------------
+   Scroll cue
+----------------------------- */
+
+.scroll-down {
+    position: absolute;
+
+    left: 50%;
+    bottom: 2.3rem;
+
+    transform: translateX(-50%);
+
+    z-index: 2;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 50%;
+
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+
+    font-size: 1.2rem;
+
+    transition:
+        box-shadow var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.scroll-down:hover {
+    color: var(--accent);
+
+    box-shadow: inset 0 0 0 1px var(--accent);
+
+    transform:
+        translateX(-50%)
+        translateY(4px);
+}
+
+
+/* -----------------------------
+   Hero responsive
+----------------------------- */
+
+@media (max-width: 720px) {
+
+    .hero {
+        padding: 4rem 1.25rem 4.5rem;
+    }
+
+    .hero h1 {
+        margin-bottom: 1.3rem;
+
+        font-size: clamp(
+            2.7rem,
+            12vw,
+            4.5rem
+        );
+    }
+
+    .hero h1 span {
+        font-size: 0.3em;
+    }
+
+    .hero-description {
+        max-width: 31rem;
+
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .hero {
+        padding: 3.25rem 1rem 3.75rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(
+            2.45rem,
+            13vw,
+            3.4rem
+        );
+    }
+
+    .hero-description {
+        font-size: 0.94rem;
+    }
+}

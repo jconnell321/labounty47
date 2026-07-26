@@ -1,0 +1,32 @@
+/* =========================================================
+   SADIE LABOUNTY AND THE LABOUNTY WARRIORS
+========================================================= */
+
+/* -----------------------------
+   General layout
+----------------------------- */
+
+.opening-screen {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: 100%;
+}
+
+section {
+    position: relative;
+}
+
+.section-inner {
+    width: min(
+        calc(100% - var(--page-gutter)),
+        var(--content-width)
+    );
+
+    margin: 0 auto;
+}

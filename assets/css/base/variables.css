@@ -1,0 +1,48 @@
+/* =========================================================
+   SADIE LABOUNTY AND THE LABOUNTY WARRIORS
+========================================================= */
+
+/* -----------------------------
+   Variables
+----------------------------- */
+
+:root {
+    --background: #0b0b0b;
+    --background-soft: #111111;
+    --panel: #151515;
+
+    --text: #f0ece3;
+    --text-muted: #aaa399;
+
+    --line: #302f2e;
+    --line-strong: #4b4947;
+
+    --accent: #b89a63;
+
+    --content-width: 1280px;
+
+    --header-height: 84px;
+
+    --page-gutter: 48px;
+
+    --transition-fast: 180ms ease;
+    --transition-medium: 220ms ease;
+}
+
+
+/* -----------------------------
+   Global responsive variables
+----------------------------- */
+
+@media (max-width: 720px) {
+    :root {
+        --header-height: auto;
+        --page-gutter: 32px;
+    }
+}
+
+@media (max-width: 460px) {
+    :root {
+        --page-gutter: 20px;
+    }
+}

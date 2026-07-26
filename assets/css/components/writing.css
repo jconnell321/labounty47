@@ -1,0 +1,375 @@
+/* =========================================================
+   SADIE LABOUNTY AND THE LABOUNTY WARRIORS
+========================================================= */
+
+/* =========================================================
+   WRITING SECTION
+========================================================= */
+
+.writing-section {
+    padding: 0 0 3.5rem;
+
+    background: var(--background);
+}
+
+.writing-section .section-inner {
+    box-shadow: inset 0 1px 0 var(--line);
+
+    padding-top: 2.5rem;
+}
+
+.writing-heading {
+    margin-bottom: 2.5rem;
+
+    scroll-margin-top: 2rem;
+}
+
+.writing-heading p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.7rem;
+    font-weight: 500;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+}
+
+
+/* -----------------------------
+   Featured essay
+----------------------------- */
+
+.featured-writing {
+    position: relative;
+
+    width: 100vw;
+    min-height: 680px;
+
+    margin-left: calc(50% - 50vw);
+
+    display: flex;
+    align-items: flex-end;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(9, 9, 9, 0.08) 0%,
+            rgba(9, 9, 9, 0.18) 35%,
+            rgba(9, 9, 9, 0.72) 72%,
+            var(--background) 100%
+        ),
+        url("/assets/images/journal/twin-peaks.webp")
+        center / cover
+        no-repeat;
+}
+
+.featured-writing-inner {
+    width: min(
+        calc(100% - var(--page-gutter)),
+        var(--content-width)
+    );
+
+    margin: 0 auto;
+    padding: 14rem 0 4rem;
+
+    box-shadow: inset 0 -1px 0 var(--line);
+}
+
+.writing-series {
+    margin-bottom: 1.4rem;
+
+    color: var(--accent);
+
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+}
+
+.featured-writing h2 {
+    position: relative;
+    z-index: 1;
+
+    max-width: 950px;
+
+    margin-bottom: 2rem;
+
+    color: var(--text);
+
+    font-family:
+        "Forum",
+        Georgia,
+        serif;
+
+    font-size: clamp(
+        3rem,
+        6vw,
+        6.5rem
+    );
+
+    font-weight: 400;
+
+    line-height: 0.96;
+}
+
+.featured-writing .writing-series,
+.featured-writing .writing-description,
+.featured-writing > a {
+    position: relative;
+    z-index: 1;
+}
+
+.writing-description {
+    max-width: 700px;
+
+    margin-bottom: 2rem;
+
+    color: var(--text-muted);
+
+    font-family:
+        "EB Garamond",
+        Georgia,
+        serif;
+
+    font-size: 1.2rem;
+
+    line-height: 1.7;
+}
+
+.featured-writing a {
+    display: inline-block;
+
+    margin-top: 1.5rem;
+
+    color: var(--text);
+
+    font-size: 0.65rem;
+    font-weight: 500;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.featured-writing a:hover {
+    opacity: 0.6;
+}
+
+/* -----------------------------
+   Essay list
+----------------------------- */
+
+.writing-list {
+    margin-top: 1rem;
+}
+
+.writing-item {
+    min-height: 145px;
+
+    padding: 2rem 0;
+
+    display: grid;
+
+    grid-template-columns:
+        70px
+        minmax(0, 1fr)
+        auto;
+
+    gap: 2rem;
+
+    align-items: center;
+
+    box-shadow: inset 0 -1px 0 var(--line);
+}
+
+.writing-number {
+    color: var(--text-muted);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.15em;
+}
+
+.writing-item-content p {
+    margin-bottom: 0.5rem;
+
+    color: var(--accent);
+
+    font-size: 0.58rem;
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+}
+
+.writing-item-content h3 {
+    margin: 0;
+
+    font-family:
+        "Forum",
+        Georgia,
+        serif;
+
+    font-size: clamp(
+        1.5rem,
+        3vw,
+        2.5rem
+    );
+
+    font-weight: 400;
+
+    line-height: 1.1;
+}
+
+.writing-item-content h3 a {
+    transition: color var(--transition-fast);
+}
+
+.writing-item-content h3 a:hover {
+    color: var(--accent);
+}
+
+.writing-status {
+    color: var(--text-muted);
+
+    font-size: 0.58rem;
+    font-weight: 500;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+/* -----------------------------
+   Writing responsive
+----------------------------- */
+
+
+@media (max-width: 1000px) {
+    .writing-section {
+        padding-bottom: 3rem;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .writing-section {
+        padding-bottom: 2.5rem;
+    }
+
+    .writing-section .section-inner {
+        padding-top: 1.5rem;
+    }
+
+    .writing-heading {
+        margin-bottom: 1.5rem;
+    }
+
+    .featured-writing {
+        min-height: 500px;
+
+        padding: 0;
+
+        background-position: 62% center;
+    }
+
+    .featured-writing-inner {
+        width: min(calc(100% - var(--page-gutter)), var(--content-width));
+
+        margin: 0 auto;
+
+        padding: 9rem 0 2.5rem;
+    }
+
+    .featured-writing h2 {
+        margin-bottom: 1.35rem;
+
+        font-size: clamp(
+            2.4rem,
+            10vw,
+            3.8rem
+        );
+
+        line-height: 0.98;
+    }
+
+    .writing-series {
+        margin-bottom: 1rem;
+    }
+
+    .featured-writing .writing-description {
+        max-width: 34rem;
+
+        font-size: 0.98rem;
+        line-height: 1.6;
+    }
+
+    .writing-list {
+        margin-top: 2.75rem;
+    }
+
+    .writing-item {
+        grid-template-columns:
+            45px
+            minmax(0, 1fr);
+
+        gap: 1rem;
+
+        padding: 1.45rem 0;
+    }
+
+    .writing-status {
+        grid-column: 2;
+
+        margin-top: -0.5rem;
+    }
+
+}
+
+@media (max-width: 460px) {
+
+    .featured-writing {
+        min-height: 470px;
+    }
+
+    .featured-writing-inner {
+        width: min(calc(100% - var(--page-gutter)), var(--content-width));
+
+        padding: 11rem 0 2.25rem;
+    }
+
+    .featured-writing h2 {
+        font-size: 2.45rem;
+    }
+
+    .writing-item {
+        grid-template-columns:
+            34px
+            minmax(0, 1fr);
+
+        gap: 0.75rem;
+
+        padding: 1.25rem 0;
+    }
+
+    .writing-number {
+        grid-column: 1;
+    }
+
+    .writing-status {
+        grid-column: 2;
+
+        margin-top: -0.25rem;
+    }
+}
