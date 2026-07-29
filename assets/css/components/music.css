@@ -292,6 +292,11 @@
 
 
 @media (max-width: 460px) {
+    .album-selector-container::before {
+        padding-top: 1.1rem;
+        margin-bottom: 1.1rem;
+    }
+
     .album-selector {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
