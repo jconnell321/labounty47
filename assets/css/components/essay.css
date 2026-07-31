@@ -126,7 +126,7 @@
 
 
 .essay-hero h1 {
-    max-width: 1200px;
+    max-width: 1350px;
 
     margin: 0;
 
@@ -150,6 +150,32 @@
     text-wrap: balance;
 }
 
+/* =========================================================
+   PAGE-SPECIFIC ESSAY HEROES
+========================================================= */
+
+/* Twin Peaks */
+
+.twin-peaks-page .essay-hero-image {
+    object-position: 60% center;
+}
+
+.twin-peaks-page .essay-hero h1 {
+    max-width: 1320px;
+
+    font-size: clamp(
+        2.9rem,
+        5.15vw,
+        5.65rem
+    );
+}
+
+
+/* Search for a Path */
+
+.initiation-page .essay-hero-image {
+    object-position: 48% 42%;
+}
 
 /* =========================================================
    ESSAY INTRODUCTION
@@ -497,13 +523,13 @@
 
 
 .essay-navigation-link {
-    min-height: 230px;
-
-    padding: 2.75rem 3rem;
+    min-height: 160px;
+    padding: 1.75rem 3rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1rem;
 
     transition:
         background-color var(--transition-medium),
@@ -535,7 +561,7 @@
 .essay-navigation-title {
     max-width: 500px;
 
-    margin-top: 2.5rem;
+    margin-top: 0;
 
     font-family:
         "Forum",
@@ -557,6 +583,11 @@
     align-items: flex-end;
 }
 
+.essay-navigation-spacer {
+    min-height: 100%;
+    background: transparent;
+    border: 0;
+}
 
 /* =========================================================
    RETURN TO JOURNAL
@@ -610,7 +641,8 @@
     }
 
     .essay-navigation-link {
-        padding: 2.5rem 2rem;
+        min-height: 150px;
+        padding: 1.5rem 2rem;
     }
 }
 
@@ -623,7 +655,7 @@
         background-position: center;
     }
 
-    .essay-hero-overlay {
+    .evola-page .essay-hero-overlay {
         background:
             radial-gradient(
                 ellipse at 45% 48%,
@@ -653,6 +685,26 @@
     }
 
     .essay-hero h1 {
+        font-size: clamp(
+            2.5rem,
+            10vw,
+            4rem
+        );
+
+        line-height: 0.97;
+    }
+
+    .twin-peaks-page .essay-hero h1 {
+        font-size: clamp(
+            2.25rem,
+            8.4vw,
+            3.25rem
+        );
+
+        line-height: 1;
+    }
+
+    .initiation-page .essay-hero h1 {
         font-size: clamp(
             2.5rem,
             10vw,
@@ -700,8 +752,8 @@
     }
 
     .essay-navigation-link {
-        min-height: 190px;
-        padding: 2rem 1rem;
+        min-height: 140px;
+        padding: 1.5rem 1rem;
     }
 
     .essay-navigation-link + .essay-navigation-link {
@@ -711,10 +763,6 @@
     .essay-navigation-next {
         text-align: left;
         align-items: flex-start;
-    }
-
-    .essay-navigation-title {
-        margin-top: 2rem;
     }
 }
 
@@ -730,6 +778,15 @@
     }
 
     .essay-hero h1 {
+        font-size: 2.55rem;
+    }
+
+    .twin-peaks-page .essay-hero h1 {
+        font-size: 2.15rem;
+        line-height: 1.02;
+    }
+
+    .initiation-page .essay-hero h1 {
         font-size: 2.55rem;
     }
 
@@ -767,7 +824,7 @@
     }
 
     .essay-navigation-link {
-        min-height: 175px;
+        min-height: 130px;
     }
 
     .essay-journal-return {
