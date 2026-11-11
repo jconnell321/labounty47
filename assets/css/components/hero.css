@@ -157,9 +157,11 @@
     border-color: var(--accent);
 }
 
-.scroll-down > * {
+.scroll-down > span {
     position: relative;
     z-index: 1;
+    line-height: 1;
+    transform: translateY(-2px);
 }
 
 /* -----------------------------
