@@ -1,0 +1,62 @@
+.apotheosis-section {
+    padding: clamp(3rem, 6vw, 5rem) max(1.25rem, calc(var(--page-gutter) / 2));
+    background: #080808;
+    box-shadow: inset 0 1px 0 #302f2e;
+    color: #f2f0e9;
+}
+.apotheosis-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+}
+.apotheosis-cover { margin: 0; }
+.apotheosis-cover img { width: 100%; height: auto; display: block; }
+.apotheosis-copy h2 {
+    margin: 0 0 1.25rem;
+    font-family: "Forum", Georgia, serif;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #f2f0e9;
+}
+.apotheosis-copy p {
+    margin: 0;
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.55;
+}
+@media (max-width: 700px) {
+    .apotheosis-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .apotheosis-cover { width: min(100%, 300px); margin: 0 auto; }
+    .apotheosis-copy h2 { text-align: center; }
+    .apotheosis-copy p { font-size: 1.15rem; }
+}
+
+.apotheosis-copy h2::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin-top: 1rem;
+    background: #9b2530;
+}
+.apotheosis-site-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid #9b2530;
+    padding-bottom: 0.15rem;
+    transition: color 180ms ease;
+}
+.apotheosis-site-link:hover { color: #d29399; }
+.apotheosis-site-link:focus-visible { outline: 2px solid #d29399; outline-offset: 5px; }
+@media (max-width: 700px) {
+    .apotheosis-copy h2::after { margin-left: auto; margin-right: auto; }
+}

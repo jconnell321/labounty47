@@ -1,0 +1,35 @@
+
+.two-names-section {
+    padding: clamp(1.75rem, 3vw, 2.5rem) max(1.25rem, calc(var(--page-gutter) / 2));
+    background: var(--background);
+    box-shadow: inset 0 1px 0 var(--line);
+}
+.two-names-inner { max-width: var(--content-width); margin: 0 auto; }
+.two-names-intro {
+    margin: 0 0 1rem;
+    color: var(--text);
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+.two-names-quotation {
+    margin: 0;
+    padding-left: clamp(1rem, 2vw, 1.5rem);
+    border-left: 2px solid var(--accent);
+}
+.two-names-quotation blockquote {
+    margin: 0;
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: clamp(1.10rem, 1.4vw, 1.15rem);
+    line-height: 1.55;
+    color: var(--text);
+}
+.two-names-quotation blockquote p { margin: 0 0 0.7em; }
+.two-names-quotation blockquote p:last-child { margin-bottom: 0; }
+.two-names-quotation figcaption {
+    margin-top: 1rem;
+    color: var(--text);
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: 1rem;
+    text-align: right;
+}

@@ -9,7 +9,7 @@
 @import url("base/typography.css");
 
 @import url("components/header.css?v=1862f41e87f1");
-@import url("components/hero.css?v=1e9ac833227d");
+@import url("components/hero.css?v=original-background");
 @import url("components/music.css?v=2e8a2dfb38fb");
 @import url("components/featured-album.css?v=24056cb58556");
 @import url("components/footer.css?v=175752c89880");
@@ -20,3 +20,9 @@
 @import url("components/contact.css?v=b2ec3217b011");
 
 @import url("utilities/animations.css?v=78dbf8b9d586");
+
+@import url("components/two-names.css?v=12");
+
+@import url("components/apotheosis.css?v=2");
+
+@import url("components/page-colours.css?v=6");
