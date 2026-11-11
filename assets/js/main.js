@@ -43,6 +43,7 @@ function openAlbumModal(album) {
         modalLink.classList.add("is-hidden");
     }
 
+    modal.querySelector(".album-modal-content").scrollTop = 0;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
 

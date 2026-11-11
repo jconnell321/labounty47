@@ -234,3 +234,18 @@ body.modal-open {
 }
 .album-modal-story:hover { color: var(--accent); }
 .album-modal-epigraph[hidden], .album-modal-story[hidden] { display: none; }
+
+/* Compact editorial layout: quote and story link appear sooner. */
+.album-modal-cover { width: min(100%, 220px); margin-bottom: 1.2rem; }
+.album-modal-content { padding: 2rem 2.5rem; scrollbar-width: thin; }
+.album-modal-content h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
+.album-modal-artist { margin-bottom: 0.9rem; }
+.album-modal-status { margin: 0 0 1.2rem; }
+.album-modal-epigraph { margin: 0 auto 1.15rem; }
+.album-modal-description { margin-bottom: 1.25rem; }
+.album-modal-story { display: block; width: fit-content; margin: 0 auto 1.5rem; }
+@media (max-width: 720px) {
+ .album-modal-content { padding: 2.5rem 1.25rem 1.5rem; }
+ .album-modal-cover { width: min(100%, 155px); margin-bottom: 1rem; }
+}
+.album-modal-epigraph[hidden], .album-modal-story[hidden] { display: none; }
