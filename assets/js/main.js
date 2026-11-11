@@ -23,7 +23,6 @@ function openAlbumModal(album) {
     } = album.dataset;
 
     modalCover.src = cover;
-    modalBackdrop.style.setProperty("--album-art", `url("${cover}")`);
     modalCover.alt = `${title} by ${artist}`;
 
     modalTitle.textContent = title;

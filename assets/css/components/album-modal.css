@@ -3,24 +3,22 @@
  position:fixed; inset:0; z-index:1000;
  display:flex; align-items:center; justify-content:center; padding:24px;
  opacity:0; visibility:hidden;
- transition:opacity .22s ease,visibility .22s ease;
+ transition:none;
 }
 .album-modal.is-open {opacity:1;visibility:visible;}
-.album-modal-backdrop {position:absolute;inset:0;background:#090909fa;overflow:hidden;}
-.album-modal-backdrop::before {
- content:'';position:absolute;inset:-100px;pointer-events:none;
- background-image:var(--album-art);background-position:center;background-size:cover;
- filter:blur(85px);opacity:.14;
+.album-modal-backdrop {
+ position:absolute;inset:0;
+ background:radial-gradient(ellipse at 50% 25%,rgba(32,27,24,.97),rgba(9,9,9,.98) 70%);
 }
 .album-modal-content {
  position:relative;z-index:1;width:min(100%,660px);
- max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain;
+ max-height:calc(100vh - 48px);max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain;
  padding:30px 46px 36px;text-align:center;
  border:0;background:transparent;box-shadow:none;
  scrollbar-width:thin;scrollbar-color:#51483c transparent;
- transform:translateY(10px);transition:transform .22s ease;
+
 }
-.album-modal.is-open .album-modal-content {transform:translateY(0);}
+
 .album-modal-close {
  position:absolute;top:0;right:0;width:44px;height:44px;
  border:0;padding:0;background:transparent;color:var(--text-muted);
@@ -77,7 +75,7 @@
 body.modal-open {overflow:hidden;}
 @media(max-width:720px) {
  .album-modal {padding:12px;}
- .album-modal-content {padding:42px 20px 28px;max-height:calc(100dvh - 24px);}
+ .album-modal-content {padding:42px 20px 28px;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);}
  .album-modal-cover {width:min(100%,240px);margin-bottom:25px;}
  .album-modal-content h2 {font-size:clamp(1.9rem,7vw,2.4rem);}
 }
