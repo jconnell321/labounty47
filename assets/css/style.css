@@ -7,7 +7,6 @@
 @import url("base/reset.css?v=e5bdde948834");
 @import url("base/layout.css?v=b255a6ade460");
 
-
 @import url("components/header.css?v=1862f41e87f1");
 @import url("components/hero.css?v=e3549c023080");
 @import url("components/music.css?v=2e8a2dfb38fb");
@@ -25,4 +24,6 @@
 
 @import url("components/apotheosis.css?v=cdfe6269eb75");
 
-@import url("components/page-colours.css?v=2add81073c62");
+@import url("components/page-colours.css?v=858839f47320");
+
+@import url("components/typography.css?v=21d891039e67");
