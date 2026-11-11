@@ -3,20 +3,20 @@
    Main stylesheet
 ========================================================= */
 
-@import url("base/variables.css");
-@import url("base/reset.css");
-@import url("base/layout.css");
+@import url("base/variables.css?v=440bcea1925a");
+@import url("base/reset.css?v=e5bdde948834");
+@import url("base/layout.css?v=b255a6ade460");
 @import url("base/typography.css");
 
-@import url("components/header.css");
-@import url("components/hero.css");
-@import url("components/music.css");
-@import url("components/featured-album.css");
-@import url("components/footer.css");
+@import url("components/header.css?v=1862f41e87f1");
+@import url("components/hero.css?v=1e9ac833227d");
+@import url("components/music.css?v=2e8a2dfb38fb");
+@import url("components/featured-album.css?v=24056cb58556");
+@import url("components/footer.css?v=bd65e078e5da");
 
-@import url("base/accessibility.css");
+@import url("base/accessibility.css?v=53f092491d12");
 
-@import url("components/album-modal.css");
-@import url("components/contact.css");
+@import url("components/album-modal.css?v=efe77290e187");
+@import url("components/contact.css?v=41b0bbdfa3c9");
 
-@import url("utilities/animations.css");
+@import url("utilities/animations.css?v=78dbf8b9d586");
