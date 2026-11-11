@@ -12,7 +12,7 @@
     box-shadow: inset 0 1px 0 rgba(174, 145, 98, .2);
 }
 .apotheosis-section {
-    background: linear-gradient(110deg, #100d0f, #0b0a0b);
+    background: linear-gradient(180deg, #0d0a0c, #0b0709);
     box-shadow: inset 0 1px 0 rgba(174, 145, 98, .2);
 }
 .contact-section {
@@ -24,11 +24,11 @@
     box-shadow: inset 0 1px 0 rgba(174, 145, 98, .2);
 }
 
-.site-header .nav-left > a, .site-header .nav-right > a { color: #d4b987; }
-.site-header .nav-left > a:hover, .site-header .nav-right > a:hover { color: #f1dfb8; }
+.site-header .nav-left > a, .site-header .nav-right > a { color: #f0ece3; }
+.site-header .nav-left > a:hover, .site-header .nav-right > a:hover { color: #ffffff; }
 
 .album-selector-container::before {
-    color: #d4b987;
+    color: #f0ece3;
     width: fit-content;
     margin: 0 auto 1.75rem;
     padding: 1.75rem 3.75rem 0;
@@ -40,3 +40,70 @@
     background-position: left calc(50% + 0.875rem), right calc(50% + 0.875rem);
     background-repeat: no-repeat;
 }
+
+/* Header tones matched to the supplied screenshot. */
+.site-header {
+    background:
+        radial-gradient(ellipse at 50% 0, rgba(109, 145, 161, .06), transparent 70%),
+        linear-gradient(180deg, #152632 0%, #142531 45%, #07131c 100%);
+    box-shadow: none;
+}
+
+/* Final descent into black and red. */
+.contact-section {
+    background: linear-gradient(180deg, #090507 0%, #080305 45%, #060203 100%);
+    box-shadow: inset 0 1px 0 rgba(111, 28, 43, .28);
+}
+.contact-label { color: #d696a0; }
+.contact-email { box-shadow: inset 0 -1px 0 #71303b; }
+.contact-email:hover { color: #e7a9b4; box-shadow: inset 0 -1px 0 #b35465; }
+.site-footer {
+    background: #000;
+    box-shadow: inset 0 1px 0 #20070d;
+}
+.site-footer p { color: #fff; }
+
+/* Distinct descending tones: blue-grey, charcoal, burgundy, then black. */
+.music-section { background: #202127; }
+.music-section .album-thumb small, .music-section .artist-links > p { color: #d4d9dd; }
+.music-section .album-thumb small::before { background: #ddd0ad; }
+.music-section .album-thumb { color: #f0ece3; }
+.music-section .artist-links-list a { color: #f0ece3; }
+.music-section .artist-links-list a:hover { color: #fff; }
+.two-names-section { background: #19171d; }
+.apotheosis-section { background: linear-gradient(180deg, #181017, #130b11); }
+.contact-section { background: linear-gradient(180deg, #10070b, #090305); }
+.site-footer { background: #000; }
+
+/* Fine ornamental dividers that change colour with the descent. */
+.music-section { --divider: 129, 139, 160; }
+.two-names-section { --divider: 129, 139, 160; }
+.apotheosis-section { --divider: 141, 83, 105; }
+.contact-section { --divider: 141, 48, 68; }
+.music-section, .two-names-section, .apotheosis-section, .contact-section { box-shadow: none; }
+.music-section::before, .two-names-section::before,
+.apotheosis-section::before, .contact-section::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    background:
+        linear-gradient(90deg, transparent, rgba(var(--divider), .65) 35%, rgba(var(--divider), .85) 50%, rgba(var(--divider), .65) 65%, transparent) center top / 100% 1px no-repeat,
+        linear-gradient(90deg, transparent 20%, rgba(var(--divider), .2) 50%, transparent 80%) center bottom / 100% 1px no-repeat;
+    pointer-events: none;
+}
+.music-section::after, .two-names-section::after,
+.apotheosis-section::after, .contact-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: rgb(var(--divider));
+    box-shadow: 0 0 10px rgba(var(--divider), .2);
+    pointer-events: none;
+}
+
+.site-footer { border: 0; box-shadow: none; }

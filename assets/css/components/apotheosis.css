@@ -1,3 +1,5 @@
+@font-face { font-family: "Hofstaetten"; src: url("../../fonts/hofstaetten.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Grenze Gotisch"; src: url("../../fonts/grenze-gotisch.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
 .apotheosis-section {
     padding: clamp(3rem, 6vw, 5rem) max(1.25rem, calc(var(--page-gutter) / 2));
     background: #080808;
@@ -16,7 +18,7 @@
 .apotheosis-cover img { width: 100%; height: auto; display: block; }
 .apotheosis-copy h2 {
     margin: 0 0 1.25rem;
-    font-family: "Forum", Georgia, serif;
+    font-family: "Hofstaetten", Georgia, serif;
     font-size: clamp(2.8rem, 5vw, 4rem);
     font-weight: 400;
     line-height: 1.1;
@@ -44,19 +46,32 @@
     margin-top: 1rem;
     background: #9b2530;
 }
+/* Crimson button, matching the Black Star of Nuit site. */
 .apotheosis-site-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    max-width: 100%;
     margin-top: 1.5rem;
-    font-family: "EB Garamond", Georgia, serif;
-    font-size: 1.1rem;
-    color: var(--text);
+    padding: 13px 23px;
+    border: 0;
+    background: #650b15;
+    color: #f6eee8;
+    font-family: "Grenze Gotisch", Georgia, serif;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    letter-spacing: .01em;
+    text-align: center;
     text-decoration: none;
-    border-bottom: 1px solid #9b2530;
-    padding-bottom: 0.15rem;
-    transition: color 180ms ease;
+    transition: background 200ms ease, transform 200ms ease;
 }
-.apotheosis-site-link:hover { color: #d29399; }
+.apotheosis-site-link:hover { background: #83121e; color: #fff; transform: translateY(2px); }
 .apotheosis-site-link:focus-visible { outline: 2px solid #d29399; outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) {
+    .apotheosis-site-link { transition: none; }
+    .apotheosis-site-link:hover { transform: none; }
+}
 @media (max-width: 700px) {
     .apotheosis-copy h2::after { margin-left: auto; margin-right: auto; }
 }
