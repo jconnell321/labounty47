@@ -54,7 +54,8 @@
     min-height: 52px;
     max-width: 100%;
     margin-top: 1.5rem;
-    padding: 13px 23px;
+    /* Raise the visible lettering 3px without moving the button. */
+    padding: 10px 23px 16px;
     border: 0;
     background: #650b15;
     color: #f6eee8;
