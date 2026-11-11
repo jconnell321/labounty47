@@ -9,6 +9,8 @@ const modalTitle = modal.querySelector("#albumModalTitle");
 const modalArtist = modal.querySelector(".album-modal-artist");
 const modalStatus = modal.querySelector(".album-modal-status");
 const modalDescription = modal.querySelector(".album-modal-description");
+const modalEpigraph = modal.querySelector(".album-modal-epigraph");
+const modalStory = modal.querySelector(".album-modal-story");
 const modalLink = modal.querySelector(".album-modal-link");
 
 function openAlbumModal(album) {
@@ -28,6 +30,11 @@ function openAlbumModal(album) {
     modalArtist.textContent = artist;
     modalStatus.textContent = status;
     modalDescription.textContent = description;
+
+    modalEpigraph.hidden = !album.dataset.epigraph;
+    modalEpigraph.textContent = album.dataset.epigraph || "";
+    modalStory.hidden = !album.dataset.storyUrl;
+    if (album.dataset.storyUrl) modalStory.href = album.dataset.storyUrl;
 
     if (link) {
         modalLink.href = link;
