@@ -1,251 +1,86 @@
-/* =========================================================
-   SADIE LABOUNTY AND THE LABOUNTY WARRIORS
-========================================================= */
-
-/* =========================================================
-   ALBUM MODAL
-========================================================= */
-
+/* Album liner notes: artwork, typography and a faint wash of cover colour. */
 .album-modal {
-    position: fixed;
-    inset: 0;
-
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 2rem;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition:
-        opacity var(--transition-medium),
-        visibility var(--transition-medium);
+ position:fixed; inset:0; z-index:1000;
+ display:flex; align-items:center; justify-content:center; padding:24px;
+ opacity:0; visibility:hidden;
+ transition:opacity .22s ease,visibility .22s ease;
 }
-
-.album-modal.is-open {
-    opacity: 1;
-    visibility: visible;
+.album-modal.is-open {opacity:1;visibility:visible;}
+.album-modal-backdrop {position:absolute;inset:0;background:#090909fa;overflow:hidden;}
+.album-modal-backdrop::before {
+ content:'';position:absolute;inset:-100px;pointer-events:none;
+ background-image:var(--album-art);background-position:center;background-size:cover;
+ filter:blur(85px);opacity:.14;
 }
-
-.album-modal-backdrop {
-    position: absolute;
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.82);
-
-    backdrop-filter: blur(8px);
-}
-
 .album-modal-content {
-    position: relative;
-    z-index: 1;
-
-    width: min(100%, 620px);
-    max-height: calc(100vh - 4rem);
-
-    padding: 3rem;
-
-    overflow-y: auto;
-
-    background: var(--background-soft);
-    border: 0;
-    box-shadow: inset 0 0 0 1px var(--line);
-
-    text-align: center;
-
-    transform: translateY(20px);
-
-    transition: transform var(--transition-medium);
+ position:relative;z-index:1;width:min(100%,660px);
+ max-height:calc(100dvh - 48px);overflow-y:auto;overscroll-behavior:contain;
+ padding:30px 46px 36px;text-align:center;
+ border:0;background:transparent;box-shadow:none;
+ scrollbar-width:thin;scrollbar-color:#51483c transparent;
+ transform:translateY(10px);transition:transform .22s ease;
 }
-
-.album-modal.is-open .album-modal-content {
-    transform: translateY(0);
-}
-
+.album-modal.is-open .album-modal-content {transform:translateY(0);}
 .album-modal-close {
-    position: absolute;
-
-    top: 1rem;
-    right: 1.2rem;
-
-    padding: 0;
-
-    border: 0;
-
-    background: transparent;
-    color: var(--text);
-
-    font-size: 2rem;
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition: color var(--transition-fast);
+ position:absolute;top:0;right:0;width:44px;height:44px;
+ border:0;padding:0;background:transparent;color:var(--text-muted);
+ font:30px/1 Georgia,serif;cursor:pointer;
 }
-
-.album-modal-close:hover {
-    color: var(--accent);
-}
-
+.album-modal-close:hover {color:var(--text);}
 .album-modal-cover {
-    width: min(100%, 430px);
-
-    margin: 0 auto 2.5rem;
-
-    aspect-ratio: 1;
-    object-fit: cover;
+ display:block;width:min(100%,310px);aspect-ratio:1;object-fit:cover;
+ margin:0 auto 27px;border:0;outline:0;box-shadow:0 18px 45px #0006;
 }
-
 .album-modal-content h2 {
-    margin: 0 0 0.8rem;
-
-    font-family:
-        "Forum",
-        Georgia,
-        serif;
-
-    font-size: clamp(2.6rem, 7vw, 4.8rem);
-
-    font-weight: 400;
-    line-height: 0.95;
+ margin:0 0 12px;font:400 clamp(2rem,4vw,2.8rem)/1.08 'Forum',Georgia,serif;
+ color:var(--text);text-wrap:balance;
 }
-
 .album-modal-artist {
-    margin-bottom: 2rem;
-
-    color: var(--accent);
-
-    font-size: 0.68rem;
-    font-weight: 500;
-
-    letter-spacing: 0.24em;
-
-    text-transform: uppercase;
+ margin:0 0 10px;color:var(--accent);font-size:.65rem;
+ font-weight:500;letter-spacing:.22em;line-height:1.6;text-transform:uppercase;
 }
-
 .album-modal-status {
-    display: inline-block;
-
-    margin: -0.5rem 0 2rem;
-    padding: 0.4rem 0.75rem;
-
-    color: var(--text-muted);
-    box-shadow: inset 0 0 0 1px var(--line-strong);
-
-    font-size: 0.58rem;
-    font-weight: 500;
-
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+ display:block;margin:0 0 28px;padding:0;border:0;box-shadow:none;
+ color:var(--text-muted);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
 }
-
+.album-modal-intro {
+ max-width:490px;margin:0 auto 22px;
+ font:1.15rem/1.55 'EB Garamond',Georgia,serif;
+}
+.album-modal-intro:has(a) {margin-bottom:14px;}
+.album-modal-intro:not(:has(a)) {color:var(--text-muted);font-style:italic;}
+.album-modal-intro[hidden] {display:none;}
+.album-modal-intro a,.album-modal-intro a:visited {
+ color:#b58bd4;text-decoration:underline;text-decoration-color:transparent;
+ text-decoration-thickness:1px;text-underline-offset:5px;
+}
+.album-modal-intro a:hover,.album-modal-intro a:focus-visible {color:#d1b1e7;text-decoration-color:var(--accent);}
 .album-modal-description {
-    max-width: 500px;
-
-    margin: 0 auto 2rem;
-
-    color: var(--text-muted);
-
-    font-family:
-        "EB Garamond",
-        Georgia,
-        serif;
-
-    font-size: 1.15rem;
-    line-height: 1.7;
+ max-width:500px;margin:0 auto 25px;color:#b7aea3;
+ font:1.15rem/1.7 'EB Garamond',Georgia,serif;white-space:pre-line;
 }
-
 .album-modal-link {
-    display: inline-block;
-
-    padding-bottom: 0.35rem;
-
-    border-bottom: 0;
-    box-shadow: inset 0 -1px 0 var(--text);
-
-    font-size: 0.68rem;
-    font-weight: 500;
-
-    letter-spacing: 0.24em;
-
-    text-transform: uppercase;
+ display:inline-flex;align-items:center;justify-content:center;
+ min-height:46px;min-width:150px;padding:11px 30px;
+ border:1px solid #8d744d;border-radius:0;
+ box-shadow:none;background:linear-gradient(180deg,#251f17,#151310);
+ color:#d0b17c;font:400 .9rem/1.4 'Forum',Georgia,serif;
+ letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
+ transition:background var(--transition-fast),color var(--transition-fast),border-color var(--transition-fast);
 }
-
 .album-modal-link:hover {
-    color: var(--accent);
-    box-shadow: inset 0 -1px 0 var(--accent);
+ background:linear-gradient(180deg,#372c1d,#221c14);
+ border-color:#d0b17c;color:#f0dec0;box-shadow:none;text-decoration:none;
 }
-
-.album-modal-link.is-hidden {
-    display: none;
+.album-modal-link.is-hidden {display:none;}
+.album-modal-content a:focus-visible,.album-modal-close:focus-visible {outline:2px solid var(--accent);outline-offset:4px;}
+body.modal-open {overflow:hidden;}
+@media(max-width:720px) {
+ .album-modal {padding:12px;}
+ .album-modal-content {padding:42px 20px 28px;max-height:calc(100dvh - 24px);}
+ .album-modal-cover {width:min(100%,240px);margin-bottom:25px;}
+ .album-modal-content h2 {font-size:clamp(1.9rem,7vw,2.4rem);}
 }
+@media(prefers-reduced-motion:reduce) {.album-modal,.album-modal-content {transition:none;transform:none;}}
 
-body.modal-open {
-    overflow: hidden;
-}
-
-
-/* -----------------------------
-   Album modal responsive
------------------------------ */
-
-@media (max-width: 720px) {
-
-    .album-modal {
-        padding: 1rem;
-    }
-
-    .album-modal-content {
-        padding: 3.5rem 1.5rem 2rem;
-    }
-
-}
-
-/* Album-specific editorial accents */
-.album-modal-epigraph {
-    margin: 0 auto 1.7rem;
-    max-width: 490px;
-    color: var(--text);
-    font-family: "Forum", Georgia, serif;
-    font-size: clamp(1.35rem, 3.5vw, 1.8rem);
-    font-style: italic;
-    line-height: 1.35;
-    letter-spacing: 0.01em;
-}
-.album-modal-epigraph:not([hidden])::after {
-    content: ""; display: block; width: 46px; height: 1px;
-    margin: 1.4rem auto 0; background: var(--accent);
-}
-.album-modal-story {
-    display: inline-block;
-    margin: -0.3rem auto 2rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid var(--accent);
-    color: var(--text);
-    font-family: "Forum", Georgia, serif;
-    font-size: clamp(1.25rem, 3vw, 1.55rem);
-    line-height: 1.3;
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-.album-modal-story:hover { color: var(--accent); }
-.album-modal-epigraph[hidden], .album-modal-story[hidden] { display: none; }
-
-/* Compact editorial layout: quote and story link appear sooner. */
-.album-modal-cover { width: min(100%, 220px); margin-bottom: 1.2rem; }
-.album-modal-content { padding: 2rem 2.5rem; scrollbar-width: thin; }
-.album-modal-content h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
-.album-modal-artist { margin-bottom: 0.9rem; }
-.album-modal-status { margin: 0 0 1.2rem; }
-.album-modal-epigraph { margin: 0 auto 1.15rem; }
-.album-modal-description { margin-bottom: 1.25rem; }
-.album-modal-story { display: block; width: fit-content; margin: 0 auto 1.5rem; }
-@media (max-width: 720px) {
- .album-modal-content { padding: 2.5rem 1.25rem 1.5rem; }
- .album-modal-cover { width: min(100%, 155px); margin-bottom: 1rem; }
-}
-.album-modal-epigraph[hidden], .album-modal-story[hidden] { display: none; }
+.album-modal-description[hidden] {display:none;}

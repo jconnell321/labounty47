@@ -9,8 +9,7 @@ const modalTitle = modal.querySelector("#albumModalTitle");
 const modalArtist = modal.querySelector(".album-modal-artist");
 const modalStatus = modal.querySelector(".album-modal-status");
 const modalDescription = modal.querySelector(".album-modal-description");
-const modalEpigraph = modal.querySelector(".album-modal-epigraph");
-const modalStory = modal.querySelector(".album-modal-story");
+const modalIntro = modal.querySelector(".album-modal-intro");
 const modalLink = modal.querySelector(".album-modal-link");
 
 function openAlbumModal(album) {
@@ -24,17 +23,29 @@ function openAlbumModal(album) {
     } = album.dataset;
 
     modalCover.src = cover;
+    modalBackdrop.style.setProperty("--album-art", `url("${cover}")`);
     modalCover.alt = `${title} by ${artist}`;
 
     modalTitle.textContent = title;
     modalArtist.textContent = artist;
     modalStatus.textContent = status;
     modalDescription.textContent = description;
+    modalDescription.hidden = !description.trim();
 
-    modalEpigraph.hidden = !album.dataset.epigraph;
-    modalEpigraph.textContent = album.dataset.epigraph || "";
-    modalStory.hidden = !album.dataset.storyUrl;
-    if (album.dataset.storyUrl) modalStory.href = album.dataset.storyUrl;
+    modalIntro.hidden = false;
+    modalIntro.replaceChildren();
+    if (title === "Sakurambo Pop") {
+        modalIntro.textContent = "‘We were born among the ruins. When we were born, the gold was already transmuted into lead.’";
+    } else if (album.dataset.storyUrl) {
+        const storyLink = document.createElement("a");
+        storyLink.href = album.dataset.storyUrl;
+        storyLink.target = "_blank";
+        storyLink.rel = "noopener noreferrer";
+        storyLink.textContent = "The Story of the LaBounty Warriors";
+        modalIntro.appendChild(storyLink);
+    } else {
+        modalIntro.hidden = true;
+    }
 
     if (link) {
         modalLink.href = link;
