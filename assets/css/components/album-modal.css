@@ -1,3 +1,6 @@
+@font-face {font-family:"Cardo";src:url("../../fonts/Cardo-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap;}
+@font-face {font-family:"Cardo";src:url("../../fonts/Cardo-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap;}
+@font-face {font-family:"Cardo";src:url("../../fonts/Cardo-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap;}
 /* Album liner notes: artwork, typography and a faint wash of cover colour. */
 .album-modal {
  position:fixed; inset:0; z-index:1000;
@@ -30,21 +33,21 @@
  margin:0 auto 27px;border:0;outline:0;box-shadow:0 18px 45px #0006;
 }
 .album-modal-content h2 {
- margin:0 0 6px;font:400 clamp(2rem,4vw,2.8rem)/1.08 'Forum',Georgia,serif;
+ margin:0 0 6px;font:400 clamp(2rem,4vw,2.8rem)/1.2 'Prince Valiant',Georgia,serif;
  color:var(--text);text-wrap:balance;
 }
 .album-modal-artist {
  margin:0 0 10px;color:var(--accent);font-size:clamp(1.35rem,3vw,1.5rem);
  font-weight:400;letter-spacing:.02em;line-height:1.6;text-transform:none;
- font-family:"Forum",Georgia,serif;
+ font-family:"Junicode",Georgia,serif;
 }
 .album-modal-status {
- display:block;margin:0 0 28px;padding:0;border:0;box-shadow:none;
- color:var(--text-muted);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+ display:block;margin:0 0 20px;padding:0;border:0;box-shadow:none;
+ color:var(--text-muted);font:400 .82rem/1.5 "Junicode",Georgia,serif;letter-spacing:.08em;text-transform:uppercase;
 }
 .album-modal-intro {
- max-width:490px;margin:0 auto 22px;
- font:1.15rem/1.55 'EB Garamond',Georgia,serif;
+ max-width:490px;margin:0 auto 18px;
+ font:1.08rem/1.55 'Cardo',Georgia,serif;
 }
 .album-modal-intro:has(a) {margin-bottom:14px;}
 .album-modal-intro:not(:has(a)) {color:var(--text-muted);font-style:italic;}
@@ -56,15 +59,15 @@
 .album-modal-intro a:hover,.album-modal-intro a:focus-visible {color:#d1b1e7;text-decoration-color:var(--accent);}
 .album-modal-description {
  max-width:500px;margin:0 auto 25px;color:#b7aea3;
- font:1.15rem/1.7 'EB Garamond',Georgia,serif;white-space:pre-line;
+ font:1.08rem/1.7 'Cardo',Georgia,serif;white-space:pre-line;
 }
 .album-modal-link {
  display:inline-flex;align-items:center;justify-content:center;
  min-height:46px;min-width:150px;padding:11px 30px;
  border:1px solid #8d744d;border-radius:0;
  box-shadow:none;background:linear-gradient(180deg,#251f17,#151310);
- color:#d0b17c;font:400 .9rem/1.4 'Forum',Georgia,serif;
- letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
+ color:#d0b17c;font:400 1.45rem/1.2 'Black Chancery',Georgia,serif;
+ letter-spacing:.02em;text-transform:none;text-decoration:none;
  transition:background var(--transition-fast),color var(--transition-fast),border-color var(--transition-fast);
 }
 .album-modal-link:hover {
